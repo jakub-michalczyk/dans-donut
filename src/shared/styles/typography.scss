@@ -1,0 +1,40 @@
+$headingClasses: "h1" "h2" "h3" "h4" "h5";
+$bodyClasses: "body-1";
+
+@layer base {
+  .app-text-h1 {
+    @apply font-sans text-6xl font-light #{!important};
+  }
+  .app-text-h2 {
+    @apply font-sans text-5xl font-normal #{!important};
+  }
+  .app-text-h3 {
+    @apply font-sans text-3xl font-normal #{!important};
+  }
+  .app-text-h4 {
+    @apply font-sans text-2xl font-normal #{!important};
+  }
+  .app-text-h5 {
+    @apply font-sans text-lg font-normal #{!important};
+  }
+
+  //declare heading medium weight classes
+  @each $class in $headingClasses {
+    .app-text-#{$class}-medium {
+      @extend .app-text-#{$class};
+      @apply font-medium #{!important};
+    }
+  }
+
+  .app-text-body-1 {
+    @apply text-base font-normal #{!important};
+  }
+
+  //declare body bold weight classes
+  @each $class in $bodyClasses {
+    .shrl-text-#{$class}-bold {
+      @extend .app-text-#{$class};
+      @apply font-bold #{!important};
+    }
+  }
+}
