@@ -1,0 +1,23 @@
+{
+  "day": {
+    "totalSale": 10969,
+    "currencySymbol": "$",
+    "amountSold": "3134",
+    "progressSaleInPercent": 2.96,
+    "progressAmountSoldInPercent": -1.02
+  },
+  "week": {
+    "totalSale": 72783,
+    "currencySymbol": "$",
+    "amountSold": "20511",
+    "progressSaleInPercent": 10.53,
+    "progressAmountSoldInPercent": 2.37
+  },
+  "month": {
+    "totalSale": 320012,
+    "currencySymbol": "$",
+    "amountSold": "90451",
+    "progressSaleInPercent": 33.11,
+    "progressAmountSoldInPercent": 8.18
+  }
+}
