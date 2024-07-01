@@ -1,5 +1,11 @@
 {
   "DASHBOARD": {
-    "LABEL": "Dashboard"
+    "LABEL": "Dashboard",
+    "CARDS": {
+      "SALE": {
+        "LABEL": "Total sales",
+        "ITEMS": "pieces"
+      }
+    }
   }
 }

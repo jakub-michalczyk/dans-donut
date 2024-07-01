@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 @import "./shared/styles/typography.scss";
+@import "./shared/styles/buttons.scss";
+
+body,
+html {
+  @apply bg-app-gray-300;
+}
