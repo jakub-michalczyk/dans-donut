@@ -1,5 +1,11 @@
 {
   "DASHBOARD": {
-    "LABEL": "Podsumowanie"
+    "LABEL": "Podsumowanie",
+    "CARDS": {
+      "SALE": {
+        "LABEL": "Sprzedaż sumaryczna",
+        "ITEMS": "sztuk"
+      }
+    }
   }
 }

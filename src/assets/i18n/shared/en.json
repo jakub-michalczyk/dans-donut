@@ -2,6 +2,7 @@
   "SHARED": {
     "DAY": "Day",
     "WEEK": "Week",
-    "MONTH": "Month"
+    "MONTH": "Month",
+    "SEE_MORE": "See more"
   }
 }
