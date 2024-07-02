@@ -4,20 +4,41 @@
     "currencySymbol": "$",
     "amountSold": "3134",
     "progressSaleInPercent": 2.96,
-    "progressAmountSoldInPercent": -1.02
+    "progressAmountSoldInPercent": -1.02,
+    "mostPopularItem": {
+      "id": 0,
+      "image": "https://i.postimg.cc/MGXgfJRy/pexels-cottonbro-4686961.jpg",
+      "name": "Donut z polewą bananową",
+      "amountSold": "313",
+      "progressAmountSoldInPercent": 37.1
+    }
   },
   "week": {
     "totalSale": 72783,
     "currencySymbol": "$",
     "amountSold": "20511",
     "progressSaleInPercent": 10.53,
-    "progressAmountSoldInPercent": 2.37
+    "progressAmountSoldInPercent": 2.37,
+    "mostPopularItem": {
+      "id": 1,
+      "image": "https://i.postimg.cc/D0QN3vkK/pexels-lucaspezeta-1865333.jpg",
+      "name": "Donut z polewą czekoladową i orzeszkami",
+      "amountSold": "1212",
+      "progressAmountSoldInPercent": 6.71
+    }
   },
   "month": {
     "totalSale": 320012,
     "currencySymbol": "$",
     "amountSold": "90451",
     "progressSaleInPercent": 33.11,
-    "progressAmountSoldInPercent": 8.18
+    "progressAmountSoldInPercent": 8.18,
+    "mostPopularItem": {
+      "id": 2,
+      "image": "https://i.postimg.cc/659jGNxy/pexels-the-5th-50003-179907.jpg",
+      "name": "Donut kakowy w kształcie misia",
+      "amountSold": "27991",
+      "progressAmountSoldInPercent": 12.6
+    }
   }
 }
