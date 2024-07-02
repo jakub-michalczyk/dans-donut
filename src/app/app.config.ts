@@ -44,6 +44,11 @@ export function HttpLoaderFactory2(http: HttpBackend) {
       optional: true,
     },
     {
+      prefix: './assets/i18n/items/',
+      suffix: '.json',
+      optional: true,
+    },
+    {
       prefix: './assets/i18n/shared/',
       suffix: '.json',
       optional: true,

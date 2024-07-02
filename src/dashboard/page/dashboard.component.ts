@@ -3,9 +3,10 @@ import { MatCardModule } from '@angular/material/card';
 import { SharedModule } from '../../shared/modules/shared/shared.module';
 import { SelectComponent } from '../../shared/components/select/select.component';
 import { EDateFormat, ISaleSummaryDTO } from '../model/dasboard.model';
-import { DashboardApiService } from '../service/dashboard-api.service';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { SaleSummaryComponent } from '../components/sale-summary/sale-summary.component';
+import { PopularItemComponent } from '../components/popular-item/popular-item.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
     SelectComponent,
     MatIconModule,
     MatButtonModule,
+    SaleSummaryComponent,
+    PopularItemComponent,
   ],
   providers: [],
   templateUrl: './dashboard.component.html',
@@ -26,16 +29,9 @@ export class DashboardComponent {
   dateTo = signal('');
   saleSummary = {} as ISaleSummaryDTO;
 
-  constructor(private dashboardApi: DashboardApiService) {
+  constructor() {
     this.dateFrom.set(this.setUpTodayDate());
     this.setUpSelectOptions();
-    this.getSaleSummary(EDateFormat.DAY);
-  }
-
-  getSaleSummary(dateFormat: EDateFormat) {
-    this.dashboardApi
-      .getSaleSummary(EDateFormat[dateFormat].toLowerCase())
-      .subscribe((summary) => (this.saleSummary = summary));
   }
 
   setUpSelectOptions() {
@@ -71,8 +67,6 @@ export class DashboardComponent {
       default:
         break;
     }
-
-    this.getSaleSummary(converttedString);
   }
 
   setUpTodayDate = () => new Date().toISOString().slice(0, 10);
@@ -98,15 +92,4 @@ export class DashboardComponent {
       to: today.toISOString().slice(0, 10),
     };
   };
-
-  hasSaleUpwordTrend = (progress: number) => progress > 0;
-
-  getProgressIconColor = (progress: number) =>
-    this.hasSaleUpwordTrend(progress) ? 'text-green-600' : 'text-red-600';
-
-  getProgressionSymbol = (progress: number) =>
-    this.hasSaleUpwordTrend(progress) ? '+' : '';
-
-  getProgressionIcon = (progress: number) =>
-    this.hasSaleUpwordTrend(progress) ? 'trending_up' : 'trending_down';
 }

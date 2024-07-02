@@ -2,58 +2,13 @@
 	<app-select [options]="options"
 				(selectValueChange)="updateDateValues($event)"></app-select>
 </div>
-
-<div class="flex flex-wrap h-full mt-10">
-	<div class="w-1/2 h-full px-2 py-2">
-		<mat-card>
-			<mat-card-content class="bg-white rouded !p-6">
-				<mat-card-title class="app-text-h4">
-					<div class="flex justify-between  items-center">
-						<div>
-							{{ 'DASHBOARD.CARDS.SALE.LABEL' | translate }}
-						</div>
-						<div class="app-text-caption-1 text-gray-400">
-							{{ dateFrom() }}
-							{{ dateFrom() && dateTo() ? ' - ' : ''}}
-							{{ dateTo() }}
-						</div>
-					</div>
-				</mat-card-title>
-				<div class="flex items-center flex-wrap mt-5">
-					<div>
-						<div class="app-text-h3-medium">
-							~{{ saleSummary.totalSale }}{{ saleSummary.currencySymbol}}
-						</div>
-						<div class="flex items-center"
-							 [ngClass]="getProgressIconColor(saleSummary.progressSaleInPercent)">
-							<mat-icon class="mr-2"
-									  [fontIcon]="getProgressionIcon(saleSummary.progressSaleInPercent)"></mat-icon>
-							(
-							{{ getProgressionSymbol(saleSummary.progressSaleInPercent) }}{{
-							saleSummary.progressSaleInPercent }}%
-							)
-						</div>
-					</div>
-					<div class="ml-10">
-						<div class="app-text-h3-medium">
-							~{{ saleSummary.amountSold }} {{ 'DASHBOARD.CARDS.SALE.ITEMS' | translate }}
-						</div>
-						<div class="flex items-center"
-							 [ngClass]="getProgressIconColor(saleSummary.progressAmountSoldInPercent)">
-							<mat-icon class="mr-2"
-									  [fontIcon]="getProgressionIcon(saleSummary.progressAmountSoldInPercent)"></mat-icon>
-							(
-							{{ getProgressionSymbol(saleSummary.progressAmountSoldInPercent) }}{{
-							saleSummary.progressAmountSoldInPercent }}%
-							)
-						</div>
-					</div>
-				</div>
-				<div class="flex justify-end mt-10">
-					<button mat-flat-button
-							class="app-button-flat">{{ 'SHARED.SEE_MORE' | translate }}</button>
-				</div>
-			</mat-card-content>
-		</mat-card>
+<div class="h-full mt-10 grid grid-cols-1 lg:grid-cols-2 gap-4">
+	<div class="w-full h-full px-2 py-2">
+		<app-sale-summary [dateTo]="dateTo()"
+						  [dateFrom]="dateFrom()"></app-sale-summary>
+	</div>
+	<div class="w-full h-full px-2 py-2">
+		<app-popular-item [dateTo]="dateTo()"
+						  [dateFrom]="dateFrom()"></app-popular-item>
 	</div>
 </div>

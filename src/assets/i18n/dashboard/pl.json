@@ -5,6 +5,9 @@
       "SALE": {
         "LABEL": "Sprzedaż sumaryczna",
         "ITEMS": "sztuk"
+      },
+      "POPULAR_ITEM": {
+        "LABEL": "Ostatnio popularne"
       }
     }
   }
