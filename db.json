@@ -11,7 +11,8 @@
       "name": "Donut z polewą bananową",
       "amountSold": "313",
       "progressAmountSoldInPercent": 37.1
-    }
+    },
+    "chartData": []
   },
   "week": {
     "totalSale": 72783,
@@ -25,7 +26,8 @@
       "name": "Donut z polewą czekoladową i orzeszkami",
       "amountSold": "1212",
       "progressAmountSoldInPercent": 6.71
-    }
+    },
+    "chartData": []
   },
   "month": {
     "totalSale": 320012,
@@ -39,6 +41,7 @@
       "name": "Donut kakowy w kształcie misia",
       "amountSold": "27991",
       "progressAmountSoldInPercent": 12.6
-    }
+    },
+    "chartData": []
   }
 }
