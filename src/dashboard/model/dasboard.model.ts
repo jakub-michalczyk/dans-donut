@@ -4,6 +4,11 @@ export enum EDateFormat {
   MONTH,
 }
 
+export interface IDate {
+  from: string;
+  to: string;
+}
+
 export interface ISaleSummaryDTO {
   totalSale: number;
   currencySymbol: string;

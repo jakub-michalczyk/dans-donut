@@ -1,41 +1,27 @@
 import { Directive, Input } from '@angular/core';
-import { EDateFormat, ISaleSummaryDTO } from '../../model/dasboard.model';
+import {
+  EDateFormat,
+  IDate,
+  ISaleSummaryDTO,
+} from '../../model/dasboard.model';
 import { DashboardApiService } from '../../service/dashboard-api.service';
 
 @Directive()
 export abstract class DashboardCardComponent {
   saleSummary = {} as ISaleSummaryDTO;
 
-  @Input() set dateTo(value: string) {
-    this._dateTo = value;
-    this.tryGetSaleSummary();
-  }
-
-  @Input() set dateFrom(value: string) {
-    this._dateFrom = value;
-    this.tryGetSaleSummary();
+  @Input() set date(value: IDate | null) {
+    if (value) {
+      this._dateFrom = value.from;
+      this._dateTo = value.to;
+      this.getSaleSummary();
+    }
   }
 
   private _dateTo = '';
   private _dateFrom = '';
 
   constructor(private dashboardApi: DashboardApiService) {}
-
-  private tryGetSaleSummary() {
-    if (this.isDateRangeValid()) {
-      this.getSaleSummary();
-    }
-  }
-
-  private isDateRangeValid(): boolean {
-    if (!this._dateFrom) {
-      return false;
-    }
-    if (this._dateTo && new Date(this._dateFrom) > new Date(this._dateTo)) {
-      return false;
-    }
-    return true;
-  }
 
   private getSaleSummary() {
     const dayDifference = this.getDateDifferenceInDays(
@@ -50,7 +36,7 @@ export abstract class DashboardCardComponent {
 
   private getDateDifferenceInDays(dateFrom: string, dateTo?: string): number {
     if (!dateTo) {
-      dateTo = new Date().toISOString().split('T')[0]; // Użyj dzisiejszej daty, jeśli dateTo jest puste
+      dateTo = new Date().toISOString().split('T')[0];
     }
     return Math.floor((Date.parse(dateTo) - Date.parse(dateFrom)) / 86400000);
   }

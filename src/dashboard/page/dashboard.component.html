@@ -4,11 +4,9 @@
 </div>
 <div class="h-full mt-10 grid grid-cols-1 lg:grid-cols-2 gap-4">
 	<div class="w-full h-full px-2 py-2">
-		<app-sale-summary [dateTo]="dateTo()"
-						  [dateFrom]="dateFrom()"></app-sale-summary>
+		<app-sale-summary [date]="dateObject | async"></app-sale-summary>
 	</div>
 	<div class="w-full h-full px-2 py-2">
-		<app-popular-item [dateTo]="dateTo()"
-						  [dateFrom]="dateFrom()"></app-popular-item>
+		<app-popular-item [date]="dateObject | async"></app-popular-item>
 	</div>
 </div>
