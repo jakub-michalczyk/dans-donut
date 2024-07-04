@@ -12,6 +12,7 @@
 				</div>
 			</div>
 		</mat-card-title>
+		@if(isSaleSummaryFetched() && saleSummary !== null){
 		<div class="flex flex-col justify-between sm:h-full">
 			<div class="flex items-center flex-wrap mt-3">
 				<div class="py-2 px-2">
@@ -48,5 +49,14 @@
 						class="app-button-flat">{{ 'SHARED.SEE_MORE' | translate }}</button>
 			</div>
 		</div>
+		}
+		@else if(saleSummary == null){
+		<div class="p-4">
+			<mat-spinner diameter="50"></mat-spinner>
+		</div>
+		}
+		@else {
+		<div class="px-2 py-4 text-red-500">{{ 'DASHBOARD.CARDS.ERROR' | translate }}</div>
+		}
 	</mat-card-content>
 </mat-card>

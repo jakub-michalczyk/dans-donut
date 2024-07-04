@@ -12,8 +12,8 @@
 				</div>
 			</div>
 		</mat-card-title>
+		@if(isSaleSummaryFetched() && saleSummary !== null){
 		<div class="flex flex-col justify-between sm:h-full">
-			@if(saleSummary.mostPopularItem){
 			<div class="flex flex-wrap items-center mt-5">
 				<div class="w-36 h-36 p-2">
 					<img class="w-full rounded-full h-full object-cover"
@@ -37,14 +37,20 @@
 					</div>
 				</div>
 			</div>
-			}
-			@else {
-			<mat-spinner></mat-spinner>
-			}
+
 			<div class="flex justify-end sm:mb-10">
 				<button mat-flat-button
 						class="app-button-flat">{{ 'SHARED.SEE_MORE' | translate }}</button>
 			</div>
 		</div>
+		}
+		@else if(saleSummary == null){
+		<div class="p-4">
+			<mat-spinner diameter="50"></mat-spinner>
+		</div>
+		}
+		@else {
+		<div class="px-2 py-4 text-red-500">{{ 'DASHBOARD.CARDS.ERROR' | translate }}</div>
+		}
 	</mat-card-content>
 </mat-card>

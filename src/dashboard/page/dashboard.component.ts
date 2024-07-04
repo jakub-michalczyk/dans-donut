@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { SaleSummaryComponent } from '../components/sale-summary/sale-summary.component';
 import { PopularItemComponent } from '../components/popular-item/popular-item.component';
 import { BehaviorSubject } from 'rxjs';
+import { ChartComponent } from '../components/chart/chart.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +21,7 @@ import { BehaviorSubject } from 'rxjs';
     MatButtonModule,
     SaleSummaryComponent,
     PopularItemComponent,
+    ChartComponent,
   ],
   providers: [],
   templateUrl: './dashboard.component.html',

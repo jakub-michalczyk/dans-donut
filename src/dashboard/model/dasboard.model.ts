@@ -16,6 +16,7 @@ export interface ISaleSummaryDTO {
   progressSaleInPercent: number;
   progressAmountSoldInPercent: number;
   mostPopularItem: IPopularItemDTO;
+  chartData: number[];
 }
 
 export interface IPopularItemDTO {
@@ -24,4 +25,15 @@ export interface IPopularItemDTO {
   name: string;
   amountSold: string;
   progressAmountSoldInPercent: number;
+}
+
+export interface IChartData {
+  datasets: IData[];
+  labels: string[];
+}
+
+export interface IData {
+  backgroundColor: string;
+  label: string;
+  data: number[];
 }

@@ -8,7 +8,11 @@
       },
       "POPULAR_ITEM": {
         "LABEL": "Recently popular"
-      }
+      },
+      "CHART": {
+        "LABEL": "Sales chart"
+      },
+      "ERROR": "There was a problem trying to download the data."
     }
   }
 }

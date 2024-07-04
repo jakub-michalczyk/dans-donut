@@ -1,6 +1,7 @@
 import { Directive, Input } from '@angular/core';
 import {
   EDateFormat,
+  IChartData,
   IDate,
   ISaleSummaryDTO,
 } from '../../model/dasboard.model';
@@ -8,9 +9,9 @@ import { DashboardApiService } from '../../service/dashboard-api.service';
 
 @Directive()
 export abstract class DashboardCardComponent {
-  saleSummary = {} as ISaleSummaryDTO;
-
-  @Input() set date(value: IDate | null) {
+  saleSummary: ISaleSummaryDTO | null = null;
+  chartData = {} as IChartData;
+  @Input({ required: true }) set date(value: IDate | null) {
     if (value) {
       this._dateFrom = value.from;
       this._dateTo = value.to;
@@ -31,7 +32,19 @@ export abstract class DashboardCardComponent {
     const dateFormat = this.getDateFormat(dayDifference);
     this.dashboardApi
       .getSaleSummary(EDateFormat[dateFormat].toLowerCase())
-      .subscribe((summary) => (this.saleSummary = summary));
+      .subscribe((summary) => {
+        this.saleSummary = summary;
+        this.chartData = {
+          labels: this.generateTimeIntervals(),
+          datasets: [
+            {
+              label: 'Sale',
+              data: summary.chartData,
+              backgroundColor: 'rgb(219, 39, 119)',
+            },
+          ],
+        };
+      });
   }
 
   private getDateDifferenceInDays(dateFrom: string, dateTo?: string): number {
@@ -55,6 +68,21 @@ export abstract class DashboardCardComponent {
   private hasSaleUpwardTrend(progress: number): boolean {
     return progress > 0;
   }
+
+  private generateTimeIntervals(): string[] {
+    const times: string[] = [];
+    const currentHour = new Date().getHours();
+
+    for (let hour = 0; hour <= currentHour; hour += 2) {
+      const timeStr = `${hour.toString().padStart(2, '0')}:00`;
+      times.push(timeStr);
+    }
+
+    return times;
+  }
+
+  isSaleSummaryFetched = () =>
+    this.saleSummary !== null ? Object.keys(this.saleSummary).length : null;
 
   getProgressIconColor(progress: number): string {
     return this.hasSaleUpwardTrend(progress)

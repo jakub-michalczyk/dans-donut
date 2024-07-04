@@ -9,4 +9,7 @@
 	<div class="w-full h-full px-2 py-2">
 		<app-popular-item [date]="dateObject | async"></app-popular-item>
 	</div>
+	<div class="w-full h-full px-2 py-2 lg:col-span-2">
+		<app-chart [date]="dateObject | async"></app-chart>
+	</div>
 </div>

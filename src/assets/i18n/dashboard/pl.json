@@ -8,7 +8,11 @@
       },
       "POPULAR_ITEM": {
         "LABEL": "Ostatnio popularne"
-      }
+      },
+      "CHART": {
+        "LABEL": "Wykres sprzedaży"
+      },
+      "ERROR": "Wystąpił problem przy próbie pobrania danych."
     }
   }
 }

@@ -1,24 +1,29 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { SharedModule } from '../../../shared/modules/shared/shared.module';
-import { SelectComponent } from '../../../shared/components/select/select.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { ChartModule } from 'primeng/chart';
 import { DashboardCardComponent } from '../dashboard-card/dashboard-card.component';
+import { DashboardApiService } from '../../service/dashboard-api.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
-  selector: 'app-sale-summary',
+  selector: 'app-chart',
   standalone: true,
   imports: [
     MatCardModule,
     SharedModule,
-    SelectComponent,
     MatIconModule,
     MatButtonModule,
+    ChartModule,
     MatProgressSpinnerModule,
   ],
   providers: [],
-  templateUrl: './sale-summary.component.html',
+  templateUrl: './chart.component.html',
 })
-export class SaleSummaryComponent extends DashboardCardComponent {}
+export class ChartComponent extends DashboardCardComponent {
+  constructor(dashboardApi: DashboardApiService) {
+    super(dashboardApi);
+  }
+}
