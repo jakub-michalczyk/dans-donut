@@ -1,0 +1,29 @@
+<div class="px-2">
+	<app-select [options]="options"
+				(selectValueChange)="updateDateValues($event)"></app-select>
+</div>
+<div class="h-full mt-10 grid grid-cols-1 lg:grid-cols-2 gap-4">
+	<div class="w-full h-full px-2 py-2">
+		<app-dashboard-card [date]="dateObject | async"
+							[saleSummary]="saleSummary"
+							cardLabelTitle="DASHBOARD.CARDS.SALE.LABEL">
+			<app-sale-summary [saleSummary]="saleSummary"></app-sale-summary>
+		</app-dashboard-card>
+	</div>
+	<div class="w-full h-full px-2 py-2">
+		<app-dashboard-card [date]="dateObject | async"
+							[saleSummary]="saleSummary"
+							cardLabelTitle="DASHBOARD.CARDS.POPULAR_ITEM.LABEL">
+			<app-popular-item [saleSummary]="saleSummary"></app-popular-item>
+		</app-dashboard-card>
+	</div>
+	<div class="w-full h-full px-2 py-2 lg:col-span-2">
+		<app-dashboard-card [date]="dateObject | async"
+							[saleSummary]="saleSummary"
+							[chartData]="chartData"
+							cardLabelTitle="DASHBOARD.CARDS.CHART.LABEL">
+			<app-chart [saleSummary]="saleSummary"
+					   [chartData]="chartData"></app-chart>
+		</app-dashboard-card>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+@if(saleSummary !== null){
+<div class="flex flex-col justify-between sm:h-full">
+	<div class="flex flex-wrap items-center mt-5">
+		<div class="w-36 h-36 p-2">
+			<img class="w-full rounded-full h-full object-cover"
+				 [src]="saleSummary.mostPopularItem?.image" />
+		</div>
+		<div class="p-2">
+			<div class="app-text-h4-medium">
+				{{ getItemName(saleSummary.mostPopularItem.id) }}
+			</div>
+			<div class="app-text-h5">
+				~{{ saleSummary.mostPopularItem.amountSold }} {{ 'DASHBOARD.CARDS.SALE.ITEMS' | translate }}
+			</div>
+			<div class="flex items-center"
+				 [ngClass]="getProgressIconColor(saleSummary.mostPopularItem.progressAmountSoldInPercent)">
+				<mat-icon class="mr-2"
+						  [fontIcon]="getProgressionIcon(saleSummary.mostPopularItem.progressAmountSoldInPercent)"></mat-icon>
+				(
+				{{ getProgressionSymbol(saleSummary.mostPopularItem.progressAmountSoldInPercent) }}{{
+				saleSummary.mostPopularItem.progressAmountSoldInPercent }}%
+				)
+			</div>
+		</div>
+	</div>
+
+	<div class="flex justify-end sm:mb-10">
+		<button mat-flat-button
+				class="app-button-flat">{{ 'SHARED.SEE_MORE' | translate }}</button>
+	</div>
+</div>
+}

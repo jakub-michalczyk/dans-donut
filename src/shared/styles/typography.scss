@@ -1,5 +1,6 @@
 $headingClasses: "h1" "h2" "h3" "h4" "h5";
 $bodyClasses: "body-1";
+$captionClasses: "caption-1";
 
 @layer base {
   .app-text-h1 {
@@ -36,5 +37,9 @@ $bodyClasses: "body-1";
       @extend .app-text-#{$class};
       @apply font-bold #{!important};
     }
+  }
+
+  .app-text-caption-1 {
+    @apply text-sm font-normal #{!important};
   }
 }

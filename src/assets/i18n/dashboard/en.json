@@ -1,5 +1,18 @@
 {
   "DASHBOARD": {
-    "LABEL": "Dashboard"
+    "LABEL": "Dashboard",
+    "CARDS": {
+      "SALE": {
+        "LABEL": "Total sales",
+        "ITEMS": "pieces"
+      },
+      "POPULAR_ITEM": {
+        "LABEL": "Recently popular"
+      },
+      "CHART": {
+        "LABEL": "Sales chart"
+      },
+      "ERROR": "There was a problem trying to download the data."
+    }
   }
 }

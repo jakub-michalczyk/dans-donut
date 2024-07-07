@@ -1,10 +1,6 @@
 <div class="flex h-screen">
 	<div class="w-1/5 h-full bg-gray-200 hidden lg:block"></div>
-	<div class="w-full lg:w-4/5 h-full p-8 md:p-24">
-		<app-wrapper>
-			@if(isCurrentlyDashboardViewed()){
-			<app-select [options]="options"></app-select>
-			}
-		</app-wrapper>
+	<div class="w-full lg:w-4/5 h-full p-8 md:px-16 md:py-12">
+		<app-wrapper></app-wrapper>
 	</div>
 </div>

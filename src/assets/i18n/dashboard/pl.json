@@ -1,5 +1,18 @@
 {
   "DASHBOARD": {
-    "LABEL": "Podsumowanie"
+    "LABEL": "Podsumowanie",
+    "CARDS": {
+      "SALE": {
+        "LABEL": "Sprzedaż sumaryczna",
+        "ITEMS": "sztuk"
+      },
+      "POPULAR_ITEM": {
+        "LABEL": "Ostatnio popularne"
+      },
+      "CHART": {
+        "LABEL": "Wykres sprzedaży"
+      },
+      "ERROR": "Wystąpił problem przy próbie pobrania danych."
+    }
   }
 }
