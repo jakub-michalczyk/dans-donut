@@ -1,0 +1,27 @@
+<mat-card class="h-full flex flex-col">
+	<mat-card-content class="bg-white rouded !p-6 flex-grow">
+		<mat-card-title class="app-text-h4">
+			<div class="flex flex-wrap justify-between items-center">
+				<div class="px-2">
+					{{ cardLabelTitle | translate }}
+				</div>
+				<div class="app-text-caption-1 text-gray-400 px-2">
+					{{ dateFrom }}
+					{{ dateFrom && dateTo ? ' - ' : ''}}
+					{{ dateTo }}
+				</div>
+			</div>
+		</mat-card-title>
+		@if(isDataFetched() && saleSummary !== null){
+		<ng-content></ng-content>
+		}
+		@else if(saleSummary == null){
+		<div class="p-4">
+			<mat-spinner diameter="50"></mat-spinner>
+		</div>
+		}
+		@else {
+		<div class="px-2 py-4 text-red-500">{{ 'DASHBOARD.CARDS.ERROR' | translate }}</div>
+		}
+	</mat-card-content>
+</mat-card>

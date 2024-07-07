@@ -4,8 +4,8 @@ import { SharedModule } from '../../../shared/modules/shared/shared.module';
 import { SelectComponent } from '../../../shared/components/select/select.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { DashboardCardComponent } from '../dashboard-card/dashboard-card.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { DashboardCardBaseComponent } from '../dashboard-card/dashboard-card-base.component';
 
 @Component({
   selector: 'app-sale-summary',
@@ -21,4 +21,4 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   providers: [],
   templateUrl: './sale-summary.component.html',
 })
-export class SaleSummaryComponent extends DashboardCardComponent {}
+export class SaleSummaryComponent extends DashboardCardBaseComponent {}

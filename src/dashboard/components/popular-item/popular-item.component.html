@@ -1,56 +1,32 @@
-<mat-card class="h-full flex flex-col">
-	<mat-card-content class="bg-white rouded !p-6 flex-grow">
-		<mat-card-title class="app-text-h4">
-			<div class="flex flex-wrap justify-between items-center">
-				<div class="px-2">
-					{{ 'DASHBOARD.CARDS.POPULAR_ITEM.LABEL' | translate }}
-				</div>
-				<div class="app-text-caption-1 text-gray-400 px-2">
-					{{ dateFrom }}
-					{{ dateFrom && dateTo ? ' - ' : ''}}
-					{{ dateTo }}
-				</div>
+@if(saleSummary !== null){
+<div class="flex flex-col justify-between sm:h-full">
+	<div class="flex flex-wrap items-center mt-5">
+		<div class="w-36 h-36 p-2">
+			<img class="w-full rounded-full h-full object-cover"
+				 [src]="saleSummary.mostPopularItem?.image" />
+		</div>
+		<div class="p-2">
+			<div class="app-text-h4-medium">
+				{{ getItemName(saleSummary.mostPopularItem.id) }}
 			</div>
-		</mat-card-title>
-		@if(isSaleSummaryFetched() && saleSummary !== null){
-		<div class="flex flex-col justify-between sm:h-full">
-			<div class="flex flex-wrap items-center mt-5">
-				<div class="w-36 h-36 p-2">
-					<img class="w-full rounded-full h-full object-cover"
-						 [src]="saleSummary.mostPopularItem?.image" />
-				</div>
-				<div class="p-2">
-					<div class="app-text-h4-medium">
-						{{ getItemName(saleSummary.mostPopularItem.id) }}
-					</div>
-					<div class="app-text-h5">
-						~{{ saleSummary.mostPopularItem.amountSold }} {{ 'DASHBOARD.CARDS.SALE.ITEMS' | translate }}
-					</div>
-					<div class="flex items-center"
-						 [ngClass]="getProgressIconColor(saleSummary.mostPopularItem.progressAmountSoldInPercent)">
-						<mat-icon class="mr-2"
-								  [fontIcon]="getProgressionIcon(saleSummary.mostPopularItem.progressAmountSoldInPercent)"></mat-icon>
-						(
-						{{ getProgressionSymbol(saleSummary.mostPopularItem.progressAmountSoldInPercent) }}{{
-						saleSummary.mostPopularItem.progressAmountSoldInPercent }}%
-						)
-					</div>
-				</div>
+			<div class="app-text-h5">
+				~{{ saleSummary.mostPopularItem.amountSold }} {{ 'DASHBOARD.CARDS.SALE.ITEMS' | translate }}
 			</div>
+			<div class="flex items-center"
+				 [ngClass]="getProgressIconColor(saleSummary.mostPopularItem.progressAmountSoldInPercent)">
+				<mat-icon class="mr-2"
+						  [fontIcon]="getProgressionIcon(saleSummary.mostPopularItem.progressAmountSoldInPercent)"></mat-icon>
+				(
+				{{ getProgressionSymbol(saleSummary.mostPopularItem.progressAmountSoldInPercent) }}{{
+				saleSummary.mostPopularItem.progressAmountSoldInPercent }}%
+				)
+			</div>
+		</div>
+	</div>
 
-			<div class="flex justify-end sm:mb-10">
-				<button mat-flat-button
-						class="app-button-flat">{{ 'SHARED.SEE_MORE' | translate }}</button>
-			</div>
-		</div>
-		}
-		@else if(saleSummary == null){
-		<div class="p-4">
-			<mat-spinner diameter="50"></mat-spinner>
-		</div>
-		}
-		@else {
-		<div class="px-2 py-4 text-red-500">{{ 'DASHBOARD.CARDS.ERROR' | translate }}</div>
-		}
-	</mat-card-content>
-</mat-card>
+	<div class="flex justify-end sm:mb-10">
+		<button mat-flat-button
+				class="app-button-flat">{{ 'SHARED.SEE_MORE' | translate }}</button>
+	</div>
+</div>
+}
