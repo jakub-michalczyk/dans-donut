@@ -1,0 +1,26 @@
+<div class="w-full h-full bg-gray-200 flex flex-col p-8 justify-between">
+	<div>
+		<div class="flex justify-center max-w-56 mx-auto">
+			<img src="assets/images/logo.png" />
+		</div>
+		<ul class="mt-5 w-3/4 mx-auto md:w-full">
+			@for(unit of navigationUnits; track $index){
+			<a [routerLink]="unit.path">
+				<li class="px-6 py-4 bg-white rounded flex items-center my-2"
+					[ngClass]="{'outline outline-offset-2 outline-white': unit.isActive}">
+					<mat-icon class="material-icons-outlined">{{ unit.icon }}</mat-icon>
+					<span class="pl-2">{{ unit.label | translate }}</span>
+				</li>
+			</a>
+			}
+		</ul>
+	</div>
+	<div class="flex flex-wrap justify-center">
+		@for (language of languages$ | async; track $index; let last = $last) {
+		<button mat-button
+				[ngClass]="language.isActive ? 'app-button-flat' : 'app-button-stroked mdc-button--outlined mat-mdc-outlined-button'"
+				(click)="changeLang(language.code)"
+				class=" m-2"> {{ language.label }}</button>
+		}
+	</div>
+</div>

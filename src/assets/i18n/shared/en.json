@@ -3,6 +3,8 @@
     "DAY": "Day",
     "WEEK": "Week",
     "MONTH": "Month",
-    "SEE_MORE": "See more"
+    "SEE_MORE": "See more",
+    "LIST": "List",
+    "DASHBOARD": "Dashboard"
   }
 }

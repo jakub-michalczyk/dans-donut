@@ -2,4 +2,7 @@
   .app-button-flat {
     @apply bg-pink-600 text-white py-2 rounded font-light #{!important};
   }
+  .app-button-stroked {
+    @apply border-pink-600 text-pink-600 py-2 rounded font-light #{!important};
+  }
 }

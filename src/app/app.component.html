@@ -1,5 +1,15 @@
 <div class="flex h-screen">
-	<div class="w-1/5 h-full bg-gray-200 hidden lg:block"></div>
+	<div #sideBar
+		 class="md:w-1/2 h-full w-full lg:w-1/5 fixed lg:static lg:flex lg:translate-x-0 transition-transform -translate-x-full z-50">
+		<app-side-bar></app-side-bar>
+	</div>
+	<div class="tham tham-e-squeeze tham-w-6 absolute top-0 right-0 p-12 lg:hidden z-50"
+		 #hamburger
+		 (click)="toggleSideBar()">
+		<div class="tham-box">
+			<div class="tham-inner"></div>
+		</div>
+	</div>
 	<div class="w-full lg:w-4/5 h-full p-8 md:px-16 md:py-12">
 		<app-wrapper></app-wrapper>
 	</div>
