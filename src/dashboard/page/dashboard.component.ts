@@ -11,13 +11,14 @@ import {
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { SaleSummaryComponent } from '../components/sale-summary/sale-summary.component';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, combineLatest } from 'rxjs';
 import { DashboardCardComponent } from '../components/dashboard-card/dashboard-card.component';
 import { DashboardApiService } from '../service/dashboard-api.service';
 import { PopularItemComponent } from '../components/popular-item/popular-item.component';
 import { ChartComponent } from '../components/chart/chart.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { switchMap } from 'rxjs/operators';
+import { startWith, switchMap } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -43,40 +44,34 @@ export class DashboardComponent {
   chartData = {} as IChartData;
   private destroyRef = inject(DestroyRef);
 
-  constructor(private dashboardApi: DashboardApiService) {
+  constructor(
+    private dashboardApi: DashboardApiService,
+    private translate: TranslateService
+  ) {
     this.dateObject.next({ from: this.setUpTodayDate(), to: '' });
     this.setUpSelectOptions();
     this.fetchSaleSummaryData();
   }
 
   private fetchSaleSummaryData() {
-    this.dateObject
-      .pipe(
-        takeUntilDestroyed(this.destroyRef),
-        switchMap((date) => {
-          const dayDifference = this.getDateDifferenceInDays(
-            date.from,
-            date.to
-          );
-          const dateFormat = this.getDateFormat(dayDifference);
-          return this.dashboardApi.getSaleSummary(
-            EDateFormat[dateFormat].toLowerCase()
-          );
-        })
-      )
-      .subscribe((summary) => {
+    const saleSummary$ = this.getSaleSummaryObservable();
+    const translation$ = this.getTranslationObservable();
+
+    combineLatest([saleSummary$, translation$]).subscribe(
+      ([summary, saleLabel]) => {
         this.saleSummary = summary;
         this.chartData = {
           labels: this.generateTimeIntervals(),
           datasets: [
             {
-              label: 'Sale',
+              label: saleLabel,
               data: summary.chartData,
               backgroundColor: 'rgb(219, 39, 119)',
             },
           ],
         };
-      });
+      }
+    );
   }
 
   private getDateDifferenceInDays(dateFrom: string, dateTo?: string): number {
@@ -140,6 +135,24 @@ export class DashboardComponent {
         break;
     }
   }
+
+  private getTranslationObservable = () =>
+    this.translate.onDefaultLangChange.pipe(
+      startWith(this.translate.currentLang),
+      switchMap(() => this.translate.get('SHARED.SALE'))
+    );
+
+  private getSaleSummaryObservable = () =>
+    this.dateObject.pipe(
+      takeUntilDestroyed(this.destroyRef),
+      switchMap((date) => {
+        const dayDifference = this.getDateDifferenceInDays(date.from, date.to);
+        const dateFormat = this.getDateFormat(dayDifference);
+        return this.dashboardApi.getSaleSummary(
+          EDateFormat[dateFormat].toLowerCase()
+        );
+      })
+    );
 
   setUpTodayDate = () => new Date().toISOString().slice(0, 10);
 
