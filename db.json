@@ -43,5 +43,63 @@
       "progressAmountSoldInPercent": 12.6
     },
     "chartData": []
+  },
+  "list": {
+    "data": [
+      {
+        "id": 0,
+        "image": "https://i.postimg.cc/MGXgfJRy/pexels-cottonbro-4686961.jpg",
+        "name": "Donut z polewą bananową",
+        "amountSold": "313",
+        "progressAmountSoldInPercent": 37.1,
+        "totalSale": 12323,
+        "totalAmountSold": 1212
+      },
+      {
+        "id": 1,
+        "image": "https://i.postimg.cc/D0QN3vkK/pexels-lucaspezeta-1865333.jpg",
+        "name": "Donut z polewą czekoladową i orzeszkami",
+        "amountSold": "1212",
+        "progressAmountSoldInPercent": 6.71,
+        "totalSale": 54123,
+        "totalAmountSold": 431
+      },
+      {
+        "id": 2,
+        "image": "https://i.postimg.cc/659jGNxy/pexels-the-5th-50003-179907.jpg",
+        "name": "Donut kakowy w kształcie misia",
+        "amountSold": "27991",
+        "progressAmountSoldInPercent": 12.6,
+        "totalSale": 33123,
+        "totalAmountSold": 654
+      },
+      {
+        "id": 3,
+        "image": "https://i.postimg.cc/Bvykx7cR/pexels-fotios-photos-1785852.jpg",
+        "name": "Donut z kolorową posypką",
+        "amountSold": "1133",
+        "progressAmountSoldInPercent": -3.12,
+        "totalSale": 4912,
+        "totalAmountSold": 96
+      },
+      {
+        "id": 4,
+        "image": "https://i.postimg.cc/QtTPSgfC/pexels-karleykosmos-2801980.jpg",
+        "name": "Donut z polewą o smaku gumy balonowej",
+        "amountSold": "2213",
+        "progressAmountSoldInPercent": 10.89,
+        "totalSale": 8912,
+        "totalAmountSold": 541
+      },
+      {
+        "id": 5,
+        "image": "https://i.postimg.cc/pLrsqYTv/pexels-mccutcheon-1200655.jpg",
+        "name": "Donut z kolorowymi płatkami",
+        "amountSold": "1261",
+        "progressAmountSoldInPercent": 2.31,
+        "totalSale": 7344,
+        "totalAmountSold": 412
+      }
+    ]
   }
 }
